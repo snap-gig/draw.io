@@ -1,0 +1,64 @@
+HLD round
+
+
+Various components
+Interaction between components
+Trade offs
+How and whys
+
+
+
+
+
+
+Design a calendar
+
+Recurring events
+Normal events
+
+Function Requirement:
+1. Schedule a normal event and recurring event
+2. Add/Invite people to a event
+3. Able to see all the events user
+4. Reminder for a event
+5. User are in different time zone(time zone management)
+6. For a event send mail to respective stakeholder
+7. Event can contain title description attachments
+8. 
+
+Non Functional Requirements:
+Global Audience
+100 M users
+DAU(10% user interacting with system)
+Average User interaction per day (2)
+We can remove(soft delete) more than 6 month old events.
+
+Highly available 
+Data Reliability
+Strong consistency we can compromise
+
+200M event created per day / 84600 == 2300 qps
+200M * 365 = meta data 
+R:W → 3:1
+
+High Level System ->
+
+User Service 
+Notification Service
+Event Service
+Calendar Service
+Sync Service(Caching)
+
+Queue 
+
+Cloud And Database
+1. MySQL — all other use case sql will handle
+2. NoSQL — Event Description 
+
+
+
+
+NoSQl can be better choice for storing events and we can also store event on geo location 
+CDN
+Websockets for events
+
